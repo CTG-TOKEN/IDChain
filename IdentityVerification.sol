@@ -93,9 +93,7 @@ function transferFrom(address from, address to, uint256 value) public {
     // To mitigate the frontrunning attack, we use the new safeTransferFrom function
     safeTransferFrom(from, to, value);
     allowed[from][msg.sender] -= value;
-}
-It's important to note that the external functions `externalAPI.verifyIdentity(user)` and `externalAPI.checkAccess(user)` need to be implemented. The code above will not work as is, unless these functions are implemented or replaced with a different method of verification and access checking. Also the `approved[from][msg.sender]` should be changed to `approved[from][spender]`
-function mint(address to, uint256 value) public {
+ 
     require(msg.sender == owner || msg.sender == minter, "Unauthorized minter.");
     require(value > 0, "Invalid value.");
 
